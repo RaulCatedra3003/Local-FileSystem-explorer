@@ -53,7 +53,7 @@
                   </tr>";
           }
         }
-        function parseSize($size) {
+        function parseSize($size) { //TODO añadir función recursiba para que muestre el tamaño de carpetas dependiendo del tamaño de los archivos que contiene.
           $bytesInMegaByte = 1024 * 1024;
           $bytesInKiloByte = 1024;
           return ($size > $bytesInMegaByte) ?
