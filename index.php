@@ -62,9 +62,9 @@
             filesize($path);
           return parseSize($size);
         }
-        function renderFiles($dir) {
+        function renderFiles($dir, $dirname) {
           while(($file = readdir($dir)) != FALSE) {
-            $path = "./root" . $file;
+            $path = $dirname . $file;
             $creation_date = date("d/m/Y H:i", filectime($path));
             $last_modified_date = date("d/m/Y H:i", filemtime($path));
             $size = getSize($path);
@@ -79,7 +79,7 @@
             <th>Last modified</th>
             <th>Size</th>
           </tr>";
-        echo renderFiles($dir);
+        echo renderFiles($dir, $dirname);
         echo "</table>";
       ?>
     </main>
