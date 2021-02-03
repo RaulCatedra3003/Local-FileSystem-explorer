@@ -128,6 +128,9 @@ On this diagram you will have a clear view of all the actions the user could tak
 ## 🎉 Kudos 🎉
 <div>Icons made by <a href="https://www.flaticon.com/authors/dimitry-miroliubov" title="Dimitry Miroliubov">Dimitry Miroliubov</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
+<div>Icons made by <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+
 <br></br>
 
 <!-- MARKDOWN LINKS & IMAGES -->
