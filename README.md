@@ -76,7 +76,7 @@ The aim of this project is to create a system file explorer that allows the user
 
 <br></br>
 
-## ✏️ Tasks and Organization ✏️
+### ✏️ Tasks and Organization ✏️
 
 [GitHub Kanban](https://github.com/RaulCatedra3003/Local-FileSystem-explorer/projects/1) made with 💚
 
