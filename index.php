@@ -42,12 +42,16 @@
         $dirname = "./root";
         $dir = opendir($dirname);
         function renderTr($file, $creation_date, $last_modified, $size) {
-          echo "<tr>
-                  <td>$file</td>
-                  <td>$creation_date</td>
-                  <td>$last_modified</td>
-                  <td>$size</td>
-                </tr>";
+          if($file == "." || $file == "..") {
+            return;
+          } else {
+            echo "<tr>
+                    <td>$file</td>
+                    <td>$creation_date</td>
+                    <td>$last_modified</td>
+                    <td>$size</td>
+                  </tr>";
+          }
         }
         function parseSize($size) {
           $bytesInMegaByte = 1024 * 1024;
