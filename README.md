@@ -125,6 +125,11 @@ On this diagram you will have a clear view of all the actions the user could tak
 [PHP: sistema de ficheros (ejemplo)](https://www.youtube.com/watch?v=H6ee9m5Y9P0) <br></br>
 
 
+## 🎉 Accomplishments 🎉
+<div>Icons made by <a href="https://www.flaticon.com/authors/dimitry-miroliubov" title="Dimitry Miroliubov">Dimitry Miroliubov</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+<br></br>
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/RaulCatedra3003/Local-FileSystem-explorer.svg?style=flat-square
