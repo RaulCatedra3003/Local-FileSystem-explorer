@@ -64,7 +64,7 @@
         }
         function renderFiles($dir, $dirname) {
           while(($file = readdir($dir)) != FALSE) {
-            $path = $dirname ."/". $file;
+            $path = "$dirname/$file";
             $creation_date = date("d/m/Y H:i", filectime($path));
             $last_modified_date = date("d/m/Y H:i", filemtime($path));
             $size = getSize($path);
