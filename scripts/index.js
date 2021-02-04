@@ -1,8 +1,4 @@
-const files = document.querySelectorAll('.file');
-
-files.forEach(element => {
-  element.addEventListener('click', showInfo);
-});
+$('.file').on('click', showInfo);
 
 function showInfo(e) {
   console.log(e.target);
@@ -11,7 +7,5 @@ function showInfo(e) {
 
 function showModal() {
   console.log('aqui');
-  const modal = document.getElementById('mainModal');
-  modal.style.transition = 'right 1s easeout';
-  modal.style.right = '0';
+  $('#mainModal').css({ right: '0', transition: 'right 1s ease-out' });
 }
