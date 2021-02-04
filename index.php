@@ -40,34 +40,40 @@
     <main class="main-content">
       <?php
         $dirname = "./root";
-        $dir = opendir($dirname);
+        $dir = scandir($dirname);
         function renderTr($file, $creation_date, $last_modified, $size) {
           if($file == "." || $file == "..") {
             return;
-          } else {
-            echo "<tr>
-                    <td>$file</td>
-                    <td>$creation_date</td>
-                    <td>$last_modified</td>
-                    <td>$size</td>
-                  </tr>";
+          } else { //todo añadir clase al titulo para añadir escuchador en js.
+            echo "
+            <tr>
+              <td class='file'>$file</td>
+              <td>$creation_date</td>
+              <td>$last_modified</td>
+              <td>$size</td>
+            </tr>";
           }
         }
-        function parseSize($size) { //TODO añadir función recursiba para que muestre el tamaño de carpetas dependiendo del tamaño de los archivos que contiene.
+        function parseSize($size) {
           $bytesInMegaByte = 1024 * 1024;
           $bytesInKiloByte = 1024;
           return ($size > $bytesInMegaByte) ?
             (round($size / $bytesInMegaByte, 2) . " Mb") :
             (round($size / $bytesInKiloByte, 2) . " Kb");
         }
+        function folderSize ($dir) {
+          $size = 0;
+          foreach (glob(rtrim($dir, '/').'/*', GLOB_NOSORT) as $each) {
+            $size += is_file($each) ? filesize($each) : folderSize($each);
+          }
+          return $size;
+        }
         function getSize($path) {
-          $size = (is_dir($path)) ?
-            0 :
-            filesize($path);
+          $size = (is_dir($path)) ? folderSize($path) : filesize($path);
           return parseSize($size);
         }
         function renderFiles($dir, $dirname) {
-          while(($file = readdir($dir)) != FALSE) {
+          foreach($dir as $file) {
             $path = "$dirname/$file";
             $creation_date = date("d/m/Y H:i", filectime($path));
             $last_modified_date = date("d/m/Y H:i", filemtime($path));
@@ -94,5 +100,6 @@
     <section class="footer-item">© 2021, by Victor Greco and Raúl Cátedra</section>
     <section class="footer-item">Icons made by <a href="https://www.flaticon.com/authors/dimitry-miroliubov" title="Dimitry Miroliubov" target="_blank">Dimitry Miroliubov</a> and <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs" target="_blank">DinosoftLabs</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a></section>
   </footer>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>

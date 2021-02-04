@@ -258,6 +258,7 @@ th {
   height: 90vh;
   position: absolute;
   right: 100%;
+  background-color: rgba(148, 148, 148, 0.363);
 }
 
 /* Footer styles */
