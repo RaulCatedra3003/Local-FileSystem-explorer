@@ -1,1 +1,5 @@
-root
+# exclude everything
+root/*
+
+# exception to the rule
+!root/.gitkeep 
