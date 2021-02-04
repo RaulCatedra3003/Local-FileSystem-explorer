@@ -19,10 +19,7 @@
       </form>
     </section>
     <section class="header-upload">
-      <!-- <form action="" class="header-upload__form">
-        <input type="file" class="header-upload__form-input">
-      </form> -->
-      <button class="header-upload__button bx bx-upload"></button>
+      <button class="header-upload__button bx bx-upload" id="upload"></button>
     </section>
     <section class="header-trash">
       <a href="" class="header-trash__icon"><i class='bx bx-trash' ></i></a>
@@ -41,13 +38,13 @@
       <?php
         $dirname = "./root";
         $dir = scandir($dirname);
-        function renderTr($file, $creation_date, $last_modified, $size) {
+        function renderTr($file, $creation_date, $last_modified, $size, $url, $type) {
           if($file == "." || $file == "..") {
             return;
-          } else { //todo añadir clase al titulo para añadir escuchador en js.
+          } else {
             echo "
             <tr>
-              <td class='file'>$file</td>
+              <td class='file' data-url='$url' data-type='$type'>$file</td>
               <td>$creation_date</td>
               <td>$last_modified</td>
               <td>$size</td>
@@ -78,7 +75,8 @@
             $creation_date = date("d/m/Y H:i", filectime($path));
             $last_modified_date = date("d/m/Y H:i", filemtime($path));
             $size = getSize($path);
-            echo renderTr($file, $creation_date, $last_modified_date, $size);
+            $type = (is_dir($path)) ? ('folder') : ('file');
+            echo renderTr($file, $creation_date, $last_modified_date, $size, $path, $type);
           }
         }
         echo "
@@ -94,6 +92,8 @@
       ?>
     </main>
     <section class="main-modal" id="mainModal">
+      <button class="main-modal__close"><i class='bx bx-x-circle'></i></button>
+      <section class="main-modal__content" id="mainModalContent"></section>
     </section>
   </section>
   <footer>
@@ -104,6 +104,6 @@
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
-  <script src="./scripts/index.js"></script>
+  <script src="./scripts/index.js" type="module"></script>
 </body>
 </html>

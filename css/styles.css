@@ -149,6 +149,7 @@ button {
   min-height: 44px;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 a {
   min-width: 44px;
@@ -168,8 +169,28 @@ th {
   padding: 5px 0;
   border: none;
 }
+input {
+  cursor: pointer;
+}
 .bx {
   font-size: 1.6em;
+}
+
+/* Scroll styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #05d1ff71;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #05d1ff71;
 }
 
 /* Header styles */
@@ -257,8 +278,99 @@ th {
   width: 40%;
   height: 90vh;
   position: absolute;
-  right: -100%;
-  background-color: rgba(148, 148, 148, 0.363);
+  right: -40%;
+  background-color: rgb(148, 148, 148);
+  display: none;
+}
+.file {
+  cursor: pointer;
+}
+
+/* Modal content styles */
+.main-modal__close {
+  height: 10%;
+}
+.main-modal__content {
+  overflow-y: scroll;
+  width: 90%;
+  height: 85%;
+  position: relative;
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+.item-img {
+  width: 20%;
+}
+.item-data {
+  width: 70%;
+}
+.item-data__p,
+.item-buttons__rename-label {
+  margin: 5px 0;
+}
+.item-buttons {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.item-buttons__delete {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  position: relative;
+  margin: 20px auto;
+}
+.item-buttons__rename {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  position: relative;
+  margin: 0 auto;
+}
+.item-buttons__move {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  position: relative;
+  margin: 20px auto;
+}
+.item-buttons__rename-input {
+  width: 96%;
+  margin: 10px 0;
+}
+.item-buttons__move-select {
+  width: 100%;
+  margin: 10px 0;
+}
+.item-buttons__delete-submit,
+.item-buttons__rename-submit,
+.item-buttons__move-submit,
+.item-buttons__update-submit {
+  background-color: #05d1ff;
+  height: 28px;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+.item-preview__img,
+.item-preview__video {
+  max-width: 100%;
+}
+.item-buttons__update-input {
+  margin: 20px 0;
 }
 
 /* Footer styles */
