@@ -55,4 +55,20 @@ export const helpers = {
         break;
     }
   },
+  createOptionsFragment: function (data, { url }) {
+    let fragment = '';
+    let elementUrl = url.substr(2, url.length);
+    const eliminatePoint = elementUrl.lastIndexOf('/');
+    elementUrl = elementUrl.substr(0, eliminatePoint);
+    data.forEach(element => {
+      element = element.replaceAll('\\', '/');
+      if (element !== elementUrl) {
+        const lastIndex = element.lastIndexOf('/');
+        const folderName = element.substr(lastIndex + 1, element.length);
+        const template = `<option value="${element}">${folderName}</option>`;
+        fragment += template;
+      }
+    });
+    return fragment;
+  },
 };

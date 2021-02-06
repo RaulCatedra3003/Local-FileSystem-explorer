@@ -1,7 +1,12 @@
+import { helpers } from '../../helpers/helpers.js';
+
 export const image = {
-  html: function (data) {
+  html: function ({ itemInfo, pathsArray }) {
     const fragment = $(document.createDocumentFragment());
-    const info = function ({ extension, url, name, creation, modified, size }) {
+    const info = function (
+      { extension, url, name, creation, modified, size },
+      optionsFragment,
+    ) {
       const template = `
         <section class="item">
           <section class="item-img">
@@ -27,7 +32,7 @@ export const image = {
           <form class="item-buttons__move" action="" method="">
             <input type="hidden" id="moveUrl" name="fileToMove" value="${url}">
             <label for="urlToMove" class="item-buttons__move-label">Where do you like to move?</label>
-            <select name="urlToMove" id="urlToMove" class="item-buttons__move-select"></select>
+            <select name="urlToMove" id="urlToMove" class="item-buttons__move-select">${optionsFragment}</select>
             <input type="submit" class="item-buttons__move-submit" value="Move">
           </form>
           <form class="item-buttons__delete" action="" method="">
@@ -37,10 +42,11 @@ export const image = {
         </section>
       `;
       //TODO añadir acciones y metodos a los formularios de renombrar, mover y eliminar.
-      //TODO rellenar select con las rutas posibles para mover.
       return template;
     };
-    $(fragment).append(info(data));
+    $(fragment).append(
+      info(itemInfo, helpers.createOptionsFragment(pathsArray, itemInfo)),
+    );
     return fragment;
   },
   addEventListeners: function () {

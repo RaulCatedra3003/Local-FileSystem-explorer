@@ -25,7 +25,7 @@ require('./php/model/uploadFile.php');
     <section class="header-search">
       <form action="" class="header-search__form">
         <label for="search"><i class='bx bx-search-alt'></i></label>
-        <input type="text" class="header-search__form-imput" id="search">
+        <input type="text" class="header-search__form-imput" id="search" name="searchValue">
       </form>
     </section>
     <section class="header-trash">
