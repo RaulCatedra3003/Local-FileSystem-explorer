@@ -3,6 +3,8 @@ require('./php/views/mainContentView.php');
 require('./php/helpers/mainContentHelpers.php');
 require('./php/model/mainContentModel.php');
 require('./php/model/navModel.php');
+require('./php/model/newFolder.php');
+require('./php/model/uploadFile.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

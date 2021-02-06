@@ -1,4 +1,6 @@
 import { actions } from '../actions/actions.js';
+import { store } from '../store/store.js';
+import { renderView } from '../views/renderview.js';
 
 export const helpers = {
   addPrincipalEventListeners: function () {
@@ -39,6 +41,18 @@ export const helpers = {
         size: $(childrens[3]).text(),
       };
       return data;
+    }
+  },
+  verificateModalAndRender: function ({ state, component, payload }) {
+    switch (state) {
+      case 'close':
+        renderView(component, component.html(payload));
+        store.appState.modal = 'open';
+        helpers.openModal();
+        break;
+      case 'open':
+        renderView(component, component.html(payload));
+        break;
     }
   },
 };
