@@ -3,6 +3,7 @@ import { audio } from '../views/components/Audio.js';
 import { folder } from '../views/components/Folder.js';
 import { general } from '../views/components/General.js';
 import { image } from '../views/components/Image.js';
+import { newFile } from '../views/components/NewFile.js';
 import { upload } from '../views/components/Upload.js';
 import { video } from '../views/components/Video.js';
 import { renderView } from '../views/renderview.js';
@@ -122,6 +123,20 @@ export const store = {
             break;
           case 'open':
             renderView(upload, upload.html(action.payload));
+            break;
+        }
+      }
+    },
+    showNewFolderModal: function (action) {
+      if (action.name === 'showNewFolderModal') {
+        switch (store.appState.modal) {
+          case 'close':
+            renderView(newFile, newFile.html(action.payload));
+            store.appState.modal = 'open';
+            helpers.openModal();
+            break;
+          case 'open':
+            renderView(newFile, newFile.html(action.payload));
             break;
         }
       }

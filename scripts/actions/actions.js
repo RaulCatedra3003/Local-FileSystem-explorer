@@ -38,8 +38,12 @@ export const actions = {
   toggleModal: function () {
     dispatcher.emit('toggleModal', {});
   },
-  showUpdateModal: function () {
-    //TODO añadir la url que esta visualizando el usuario en main.content como objeto al dispathcer.emit
-    dispatcher.emit('showUpdateModal', { url: './root' });
+  showUpdateModal: function (e) {
+    const url = $(e.target).data('url');
+    dispatcher.emit('showUpdateModal', { url: url });
+  },
+  showNewFolderModal: function (e) {
+    const url = $(e.target).data('url');
+    dispatcher.emit('showNewFolderModal', { url: url });
   },
 };

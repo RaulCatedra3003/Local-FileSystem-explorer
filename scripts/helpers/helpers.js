@@ -4,7 +4,8 @@ export const helpers = {
   addPrincipalEventListeners: function () {
     $('.file').on('click', actions.showInfoInModal);
     $('.main-modal__close').on('click', actions.toggleModal);
-    $('#upload').on('click', actions.showUpdateModal);
+    $('#uploadFile').on('click', actions.showUpdateModal);
+    $('#addFolder').on('click', actions.showNewFolderModal);
   },
   openModal: function () {
     $('#mainModal').fadeIn();

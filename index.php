@@ -1,7 +1,8 @@
 <?php
-require('./php/views/views.php');
+require('./php/views/mainContentView.php');
 require('./php/helpers/mainContentHelpers.php');
 require('./php/model/mainContentModel.php');
+require('./php/model/navModel.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +25,6 @@ require('./php/model/mainContentModel.php');
         <label for="search"><i class='bx bx-search-alt'></i></label>
         <input type="text" class="header-search__form-imput" id="search">
       </form>
-    </section>
-    <section class="header-upload">
-      <button class="header-upload__button bx bx-upload" id="upload"></button>
     </section>
     <section class="header-trash">
       <a href="" class="header-trash__icon"><i class='bx bx-trash'></i></a>
