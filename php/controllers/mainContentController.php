@@ -1,8 +1,9 @@
 <?php
 $rootName = "./root";
 if (isset($_GET["searchValue"])) {
-  //TODO:ver que mostrar por pantalla.
-
+  echo createTableTitle("sear");
+  echo searchItems($_GET["searchValue"]);
+  echo "</table>";
 } else if (isset($_GET["newFolderUrl"])) {
   $folderName = $_GET["newFolderName"];
   $url = $_GET["newFolderUrl"];
@@ -14,7 +15,6 @@ if (isset($_GET["searchValue"])) {
   }
 
   header($head);
-
 } else if (isset($_POST["uploadUrl"])) {
   $url = $_POST["uploadUrl"];
   $url = substr($url, 6);
@@ -28,20 +28,21 @@ if (isset($_GET["searchValue"])) {
   }
 
   header($head);
-
 } else if (empty($_GET["dir"])) {
   $directory = "";
 
-  echo printMainContent($rootName, $directory, "nav");
-
+  echo createTableTitle("nav", $rootName . $directory);
+  echo printTableContent($rootName, $directory, "nav");
+  echo "</table>";
 } else {
   $directory = $_GET["dir"];
 
   if (strpos($directory, "/") == 0 && strpos($directory, ".") == 1) {
     echo "<script>alert('This is not a valid path');</script>";
     header("Refresh: 0; URL=index.php");
-
   } else {
-    echo printMainContent($rootName, $directory, "nav");
+    echo createTableTitle("nav", $rootName . $directory);
+    echo printTableContent($rootName, $directory, "nav");
+    echo "</table>";
   }
 }

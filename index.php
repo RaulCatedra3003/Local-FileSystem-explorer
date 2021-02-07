@@ -5,6 +5,7 @@ require('./php/model/mainContentModel.php');
 require('./php/model/navModel.php');
 require('./php/model/newFolder.php');
 require('./php/model/uploadFile.php');
+require('./php/model/searchItems.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,5 +1,6 @@
 <?php
-function getFileInfo($path, $file) {
+function getFileInfo($path, $file)
+{
   $pathToSee = $path . "/" . $file;
   $creation_date = date("d/m/Y H:i", filectime($pathToSee));
   $last_modified_date = date("d/m/Y H:i", filemtime($pathToSee));
@@ -10,16 +11,17 @@ function getFileInfo($path, $file) {
   return $data;
 }
 
-function parseSize($size) {
+function parseSize($size)
+{
   $bytesInMegaByte = 1024 * 1024;
   $bytesInKiloByte = 1024;
 
   return ($size > $bytesInMegaByte) ?
-    (round($size / $bytesInMegaByte, 2) . " Mb") :
-    (round($size / $bytesInKiloByte, 2) . " Kb");
+    (round($size / $bytesInMegaByte, 2) . " Mb") : (round($size / $bytesInKiloByte, 2) . " Kb");
 }
 
-function folderSize($dir) {
+function folderSize($dir)
+{
   $size = 0;
   $sanitizedDir = rtrim($dir, "/");
 
@@ -30,7 +32,8 @@ function folderSize($dir) {
   return $size;
 }
 
-function getSize($path) {
+function getSize($path)
+{
   $size = (is_dir($path)) ? folderSize($path) : filesize($path);
 
   return parseSize($size);
