@@ -12,12 +12,11 @@ export const newFolder = {
           </form>
         </section>
       `;
+
       return template;
     };
-    $(fragment).append(info(data));
-    return fragment;
+
+    return $(fragment).append(info(data));
   },
-  addEventListeners: function () {
-    return;
-  },
+  addEventListeners: () => {}
 };

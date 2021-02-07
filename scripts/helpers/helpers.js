@@ -4,10 +4,12 @@ import { renderView } from '../views/renderview.js';
 
 export const helpers = {
   addPrincipalEventListeners: function () {
-    $('.file').on('click', actions.showInfoInModal);
-    $('.main-modal__close').on('click', actions.toggleModal);
-    $('#uploadFile').on('click', actions.showUpdateModal);
-    $('#addFolder').on('click', actions.showNewFolderModal);
+    const { showInfoInModal, toggleModal, showUpdateModal, showNewFolderModal } = actions;
+
+    $('.file').on('click', showInfoInModal);
+    $('.main-modal__close').on('click', toggleModal);
+    $('#uploadFile').on('click', showUpdateModal);
+    $('#addFolder').on('click', showNewFolderModal);
   },
   openModal: function () {
     $('#mainModal').fadeIn();
@@ -17,30 +19,31 @@ export const helpers = {
     $('#mainModal').fadeOut();
     $('#mainModal').css({ right: '-100%', transition: 'right 1s ease-in' });
   },
-  createDataFromSelectedElement: function (e) {
-    const childrens = $(e.target).parent().children();
-    if ($(e.target).data('type') === 'folder') {
-      const data = {
-        type: $(e.target).data('type'),
-        url: $(e.target).data('url'),
-        name: $(e.target).text(),
-        creation: $(childrens[1]).text(),
-        modified: $(childrens[2]).text(),
-        size: $(childrens[3]).text(),
+  createDataFromSelectedElement: function ({ target }) {
+    const childrens = $(target)?.parent()?.children();
+    const url = $(target)?.data('url');
+    const type = $(target).data('type');
+    const commonData = {
+      url,
+      name: $(target).text(),
+      creation: $(childrens[1]).text(),
+      modified: $(childrens[2]).text(),
+      size: $(childrens[3]).text(),
+    };
+
+    if (type === 'folder') {
+
+      return { 
+        type,
+        ...commonData
       };
-      return data;
-    } else if ($(e.target).data('type') === 'file') {
-      const url = $(e.target).data('url');
-      const ext = url.substr(url.length - 5, 5).split('.')[1];
-      const data = {
-        extension: ext,
-        url: url,
-        name: $(e.target).text(),
-        creation: $(childrens[1]).text(),
-        modified: $(childrens[2]).text(),
-        size: $(childrens[3]).text(),
+    } else if (type === 'file') {
+      const extension = url.substr(url.length - 5, 5).split('.')[1];
+      
+      return {
+        extension,
+        ...commonData
       };
-      return data;
     }
   },
   verificateModalAndRender: function ({ state, component, payload }) {
@@ -50,6 +53,7 @@ export const helpers = {
         store.appState.modal = 'open';
         helpers.openModal();
         break;
+
       case 'open':
         renderView(component, component.html(payload));
         break;
@@ -59,16 +63,20 @@ export const helpers = {
     let fragment = '';
     let elementUrl = url.substr(2, url.length);
     const eliminatePoint = elementUrl.lastIndexOf('/');
+
     elementUrl = elementUrl.substr(0, eliminatePoint);
     data.forEach(element => {
       element = element.replaceAll('\\', '/');
+
       if (element !== elementUrl) {
         const lastIndex = element.lastIndexOf('/');
         const folderName = element.substr(lastIndex + 1, element.length);
         const template = `<option value="${element}">${folderName}</option>`;
+
         fragment += template;
       }
     });
+
     return fragment;
   },
 };

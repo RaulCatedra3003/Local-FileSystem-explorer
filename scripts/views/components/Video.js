@@ -3,10 +3,7 @@ import { helpers } from '../../helpers/helpers.js';
 export const video = {
   html: function ({ itemInfo, pathsArray }) {
     const fragment = $(document.createDocumentFragment());
-    const info = function (
-      { extension, url, name, creation, modified, size },
-      optionsFragment,
-    ) {
+    const info = function ({ extension, url, name, creation, modified, size }, optionsFragment) {
       const template = `
         <section class="item">
           <section class="item-img">
@@ -42,14 +39,12 @@ export const video = {
         </section>
       `;
       //TODO añadir acciones y metodos a los formularios de renombrar, mover y eliminar.
+
       return template;
     };
-    $(fragment).append(
-      info(itemInfo, helpers.createOptionsFragment(pathsArray, itemInfo)),
-    );
-    return fragment;
+    const infoTemplate = info(itemInfo, helpers.createOptionsFragment(pathsArray, itemInfo));
+
+    return $(fragment).append(infoTemplate);
   },
-  addEventListeners: function () {
-    return;
-  },
+  addEventListeners: () => {}
 };
