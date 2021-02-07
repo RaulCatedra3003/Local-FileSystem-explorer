@@ -4,6 +4,13 @@ if (isset($_GET["searchValue"])) {
   echo createTableTitle("sear");
   echo searchItems($_GET["searchValue"]);
   echo "</table>";
+} else if (isset($_GET["fileToMove"])) {
+  echo moveItem($_GET["fileToMove"], $_GET["urlToMove"]);
+  $positionToCut = strripos($_GET["fileToMove"], "/");
+  $url = substr($_GET["fileToMove"], 0, $positionToCut);
+  echo $url;
+  $head = $url == "" ? "Refresh: 0; URL=index.php" : "Refresh: 0; URL=index.php?dir=$url";
+  header($head);
 } else if (isset($_GET["newFolderUrl"])) {
   $folderName = $_GET["newFolderName"];
   $url = $_GET["newFolderUrl"];

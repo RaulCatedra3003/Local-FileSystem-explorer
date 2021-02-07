@@ -4,7 +4,12 @@ import { renderView } from '../views/renderview.js';
 
 export const helpers = {
   addPrincipalEventListeners: function () {
-    const { showInfoInModal, toggleModal, showUpdateModal, showNewFolderModal } = actions;
+    const {
+      showInfoInModal,
+      toggleModal,
+      showUpdateModal,
+      showNewFolderModal,
+    } = actions;
 
     $('.file').on('click', showInfoInModal);
     $('.main-modal__close').on('click', toggleModal);
@@ -32,17 +37,16 @@ export const helpers = {
     };
 
     if (type === 'folder') {
-
-      return { 
+      return {
         type,
-        ...commonData
+        ...commonData,
       };
     } else if (type === 'file') {
       const extension = url.substr(url.length - 5, 5).split('.')[1];
-      
+
       return {
         extension,
-        ...commonData
+        ...commonData,
       };
     }
   },
@@ -61,17 +65,18 @@ export const helpers = {
   },
   createOptionsFragment: function (data, { url }) {
     let fragment = '';
-    let elementUrl = url.substr(2, url.length);
+    let elementUrl = url;
     const eliminatePoint = elementUrl.lastIndexOf('/');
 
     elementUrl = elementUrl.substr(0, eliminatePoint);
     data.forEach(element => {
       element = element.replaceAll('\\', '/');
 
-      if (element !== elementUrl) {
+      if (element !== `root${elementUrl}`) {
+        const url = element.substr(4, element.length);
         const lastIndex = element.lastIndexOf('/');
         const folderName = element.substr(lastIndex + 1, element.length);
-        const template = `<option value="${element}">${folderName}</option>`;
+        const template = `<option value="${url}">${folderName}</option>`;
 
         fragment += template;
       }

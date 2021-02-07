@@ -1,12 +1,14 @@
 <?php
 function getFileInfo($path, $file)
 {
-  $pathToSee = $path . "/" . $file;
-  $creation_date = date("d/m/Y H:i", filectime($pathToSee));
-  $last_modified_date = date("d/m/Y H:i", filemtime($pathToSee));
-  $size = getSize($pathToSee);
-  $type = (is_dir($pathToSee)) ? ('folder') : ('file');
-  $data = array('pathToSee' => $pathToSee, 'creation_date' => $creation_date, 'last_modified_date' => $last_modified_date, 'size' => $size, 'type' => $type);
+  $relativePath = substr($path, 6, strlen($path));
+  $pathToSend = "$relativePath/$file";
+  $pathToSee = "/$file";
+  $creation_date = date("d/m/Y H:i", filectime($path . $pathToSee));
+  $last_modified_date = date("d/m/Y H:i", filemtime($path . $pathToSee));
+  $size = getSize($path . $pathToSee);
+  $type = (is_dir($path . $pathToSee)) ? ('folder') : ('file');
+  $data = array('pathToSee' => $pathToSend, 'creation_date' => $creation_date, 'last_modified_date' => $last_modified_date, 'size' => $size, 'type' => $type);
 
   return $data;
 }

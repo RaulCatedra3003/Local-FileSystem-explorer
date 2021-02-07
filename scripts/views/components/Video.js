@@ -3,11 +3,14 @@ import { helpers } from '../../helpers/helpers.js';
 export const video = {
   html: function ({ itemInfo, pathsArray }) {
     const fragment = $(document.createDocumentFragment());
-    const info = function ({ extension, url, name, creation, modified, size }, optionsFragment) {
+    const info = function (
+      { extension, url, name, creation, modified, size },
+      optionsFragment,
+    ) {
       const template = `
         <section class="item">
           <section class="item-img">
-            <img src="./resources/icons/svg/${extension}.svg" alt="File icon" class="item-img__logo">
+            <img src="./resources/icons/svg/${extension}.svg" alt="${extension} icon" class="item-img__logo">
           </section>
           <section class="item-data">
             <p class="item-data__p">Name: ${name}</p>
@@ -17,7 +20,7 @@ export const video = {
           </section>
         </section>
         <section class="item-preview">
-          <video src="./${url}" alt="Video preview" class="item-preview__video" controls>
+          <video src="./root${url}" alt="Video preview" class="item-preview__video" controls>
         </section>
         <section class="item-buttons">
           <form class="item-buttons__rename" action="" method="">
@@ -26,7 +29,7 @@ export const video = {
             <input type="text" id="newName" name="newName" class="item-buttons__rename-input">
             <input type="submit" class="item-buttons__rename-submit" value="Rename">
           </form>
-          <form class="item-buttons__move" action="" method="">
+          <form class="item-buttons__move" action="index.php" method="get">
             <input type="hidden" id="moveUrl" name="fileToMove" value="${url}">
             <label for="urlToMove" class="item-buttons__move-label">Where do you like to move?</label>
             <select name="urlToMove" id="urlToMove" class="item-buttons__move-select">${optionsFragment}</select>
@@ -42,9 +45,12 @@ export const video = {
 
       return template;
     };
-    const infoTemplate = info(itemInfo, helpers.createOptionsFragment(pathsArray, itemInfo));
+    const infoTemplate = info(
+      itemInfo,
+      helpers.createOptionsFragment(pathsArray, itemInfo),
+    );
 
     return $(fragment).append(infoTemplate);
   },
-  addEventListeners: () => {}
+  addEventListeners: () => {},
 };
