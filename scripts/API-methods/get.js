@@ -1,5 +1,3 @@
 export const get = {
-  path: function (path) {
-    return $.ajax(path);
-  },
+  path: path => $.ajax(path)
 };

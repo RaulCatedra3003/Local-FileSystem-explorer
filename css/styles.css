@@ -3,6 +3,13 @@
   License: none (public domain)
 */
 
+:root {
+  --main-color: #ffffff;
+  --secondry-color: #ffffff;
+  --tertiary-color: #ffffff;
+  --quaternary-color: #ffffff;
+}
+
 html,
 body,
 div,

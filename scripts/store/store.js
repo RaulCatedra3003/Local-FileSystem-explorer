@@ -6,100 +6,82 @@ import { image } from '../views/components/Image.js';
 import { newFolder } from '../views/components/NewFolder.js';
 import { upload } from '../views/components/Upload.js';
 import { video } from '../views/components/Video.js';
-import { renderView } from '../views/renderview.js';
 
 export const store = {
-  appState: {
-    modal: 'close',
-  },
+  appState: { modal: 'close' },
   onAction: {
-    init: function (action) {
-      if (action.name === 'init') {
-        helpers.addPrincipalEventListeners();
-      }
+    init: function ({ name }) {
+      name === 'init' && helpers.addPrincipalEventListeners();
     },
-    toggleModal: function (action) {
-      if (action.name === 'toggleModal') {
-        if (store.appState.modal === 'close') {
+    toggleModal: function ({ name }) {
+      const modalState = store.appState.modal;
+
+      if (name === 'toggleModal') {
+        if (modalState === 'close') {
           store.appState.modal = 'open';
           helpers.openModal();
-        } else if (store.appState.modal === 'open') {
+
+        } else if (modalState === 'open') {
           store.appState.modal = 'close';
           helpers.closeModal();
         }
       }
     },
-    showFolderInfo: function (action) {
-      if (action.name === 'showFolderInfo') {
-        helpers.verificateModalAndRender({
-          state: store.appState.modal,
-          component: folder,
-          payload: action.payload,
-        });
-      }
+    showFolderInfo: function ({ name, payload }) {
+      name === 'showFolderInfo' && helpers.verificateModalAndRender({
+        state: store.appState.modal,
+        component: folder,
+        payload
+      });
     },
-    showImageInfo: function (action) {
-      if (action.name === 'showImageInfo') {
-        helpers.verificateModalAndRender({
-          state: store.appState.modal,
-          component: image,
-          payload: action.payload,
-        });
-      }
+    showImageInfo: function ({ name, payload }) {
+      name === 'showImageInfo' && helpers.verificateModalAndRender({
+        state: store.appState.modal,
+        component: image,
+        payload,
+      });
     },
-    showAudioInfo: function (action) {
-      if (action.name === 'showAudioInfo') {
-        helpers.verificateModalAndRender({
-          state: store.appState.modal,
-          component: audio,
-          payload: action.payload,
-        });
-      }
+    showAudioInfo: function ({ name, payload }) {
+      name === 'showAudioInfo' && helpers.verificateModalAndRender({
+        state: store.appState.modal,
+        component: audio,
+        payload,
+      });
     },
-    showVideoInfo: function (action) {
-      if (action.name === 'showVideoInfo') {
-        helpers.verificateModalAndRender({
-          state: store.appState.modal,
-          component: video,
-          payload: action.payload,
-        });
-      }
+    showVideoInfo: function ({ name, payload }) {
+      name === 'showVideoInfo' && helpers.verificateModalAndRender({
+        state: store.appState.modal,
+        component: video,
+        payload,
+      });
     },
-    showCsvInfo: function (action) {
-      if (action.name === 'showCsvInfo') {
-        helpers.verificateModalAndRender({
-          state: store.appState.modal,
-          component: csv,
-          payload: action.payload,
-        });
-      }
+    showCsvInfo: function ({ name, payload }) {
+      name === 'showCsvInfo' && helpers.verificateModalAndRender({
+        state: store.appState.modal,
+        component: csv,
+        payload,
+      });
     },
-    showGeneralInfo: function (action) {
-      if (action.name === 'showGeneralInfo') {
-        helpers.verificateModalAndRender({
-          state: store.appState.modal,
-          component: general,
-          payload: action.payload,
-        });
-      }
+    showGeneralInfo: function ({ name, payload }) {
+      name === 'showGeneralInfo' && helpers.verificateModalAndRender({
+        state: store.appState.modal,
+        component: general,
+        payload,
+      });
     },
-    showUpdateModal: function (action) {
-      if (action.name === 'showUpdateModal') {
-        helpers.verificateModalAndRender({
-          state: store.appState.modal,
-          component: upload,
-          payload: action.payload,
-        });
-      }
+    showUpdateModal: function ({ name, payload }) {
+      name === 'showUpdateModal' && helpers.verificateModalAndRender({
+        state: store.appState.modal,
+        component: upload,
+        payload,
+      });
     },
-    showNewFolderModal: function (action) {
-      if (action.name === 'showNewFolderModal') {
-        helpers.verificateModalAndRender({
-          state: store.appState.modal,
-          component: newFolder,
-          payload: action.payload,
-        });
-      }
-    },
-  },
+    showNewFolderModal: function ({ name, payload }) {
+      name === 'showNewFolderModal' && helpers.verificateModalAndRender({
+        state: store.appState.modal,
+        component: newFolder,
+        payload
+      });
+    }
+  }
 };
