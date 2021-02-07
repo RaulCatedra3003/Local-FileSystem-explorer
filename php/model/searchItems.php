@@ -9,12 +9,14 @@ function searchItems($searchedItem)
 
   foreach (glob("./$path/*$searchedItem*", GLOB_BRACE) as $itemPath) {
     $pathWhitoutRoot = substr($itemPath, 6);
+
     array_push($results, str_replace("\\", "/", $pathWhitoutRoot));
   }
   foreach ($files as $file) {
     if (is_dir($file)) {
       foreach (glob("./$file/*$searchedItem*", GLOB_BRACE) as $itemPath) {
         $pathWhitoutRoot = substr($itemPath, 6);
+
         array_push($results, str_replace("\\", "/", $pathWhitoutRoot));
       }
     }
