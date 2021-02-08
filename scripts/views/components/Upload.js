@@ -9,7 +9,7 @@ export const upload = {
             <label for="uploadFile" class="item-buttons__update-label">Choose a file to upload:</label>
             <input type="hidden" name="MAX_FILE_SIZE" value="3000000000">
             <input type="file" id="uploadFile" name="uploadFile" class="item-buttons__update-input">
-            <input type="submit" class="item-buttons__update-submit" value="Upload!">
+            <input type="submit" class="item-buttons__update-submit" value="Upload">
           </form>
         </section>
       `;

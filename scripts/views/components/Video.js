@@ -8,6 +8,9 @@ export const video = {
       optionsFragment,
     ) {
       const template = `
+        <section class="item-preview">
+          <video src="./root${url}" alt="Video preview" class="item-preview__video" controls>
+        </section>
         <section class="item">
           <section class="item-img">
             <img src="./resources/icons/svg/${extension}.svg" alt="${extension} icon" class="item-img__logo">
@@ -18,9 +21,6 @@ export const video = {
             <p class="item-data__p">Modified: ${modified}</p>
             <p class="item-data__p">Size: ${size}</p>
           </section>
-        </section>
-        <section class="item-preview">
-          <video src="./root${url}" alt="Video preview" class="item-preview__video" controls>
         </section>
         <section class="item-buttons">
           <form class="item-buttons__rename" action="index.php" method="get">

@@ -8,7 +8,7 @@ export const newFolder = {
             <input type="hidden" id="newFolderUrl" name="newFolderUrl" value="${url}">
             <label for="newFolderName" class="item-buttons__update-label">Enter new folder name:</label>
             <input type="text" id="newFolderName" name="newFolderName" class="item-buttons__update-input" required>
-            <input type="submit" class="item-buttons__update-submit" value="Create!">
+            <input type="submit" class="item-buttons__update-submit" value="Create">
           </form>
         </section>
       `;
