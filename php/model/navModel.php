@@ -13,7 +13,7 @@ function getAllFolderInRoot($path) {
         $pathShort = "$path/$value";
 
         if (is_dir($root . $pathShort)) {
-          echo "<li><a href='?dir=$pathShort'>$value</a></li>";
+          echo "<li><a href='?dir=$pathShort'> <img class='navbar-icon' src='./resources/icons/svg/folder.svg'> $value</a></li>";
           getAllFolderInRoot($pathShort);
         }
       }
