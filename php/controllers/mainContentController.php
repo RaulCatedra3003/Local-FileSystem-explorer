@@ -4,6 +4,8 @@ if (isset($_GET["searchValue"])) {
   echo createTableTitle("sear");
   echo searchItems($_GET["searchValue"]);
   echo "</table>";
+} else if (isset($_GET["trash"])) {
+  echo "papelera";
 } else if (isset($_GET["renameUrl"])) {
   echo renameItem($_GET["renameUrl"], $_GET["newName"]);
   $positionToCut = strripos($_GET["renameUrl"], "/");
