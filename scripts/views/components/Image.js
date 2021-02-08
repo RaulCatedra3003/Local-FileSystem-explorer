@@ -8,6 +8,9 @@ export const image = {
       optionsFragment,
     ) {
       const template = `
+        <section class="item-preview">
+          <img src="./root${url}" alt="Image preview" class="item-preview__img">
+        </section>
         <section class="item">
           <section class="item-img">
             <img src="./resources/icons/svg/${extension}.svg" alt="${extension} icon" class="item-img__logo">
@@ -18,9 +21,6 @@ export const image = {
             <p class="item-data__p">Modified: ${modified}</p>
             <p class="item-data__p">Size: ${size}</p>
           </section>
-        </section>
-        <section class="item-preview">
-          <img src="./root${url}" alt="Image preview" class="item-preview__img">
         </section>
         <section class="item-buttons">
           <form class="item-buttons__rename" action="index.php" method="get">
@@ -53,5 +53,5 @@ export const image = {
 
     return $(fragment).append(infoTemplate);
   },
-  addEventListeners: () => {},
+  addEventListeners: () => { },
 };
