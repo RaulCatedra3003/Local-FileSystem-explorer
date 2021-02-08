@@ -7,6 +7,7 @@ require('./php/model/newFolder.php');
 require('./php/model/uploadFile.php');
 require('./php/model/searchItems.php');
 require('./php/model/moveItem.php');
+require('./php/model/remaneItem.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

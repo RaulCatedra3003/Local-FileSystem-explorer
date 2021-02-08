@@ -23,7 +23,7 @@ export const audio = {
           <audio src="./root${url}" alt="Audio preview" class="item-preview__audio" controls>
         </section>
         <section class="item-buttons">
-          <form class="item-buttons__rename" action="" method="">
+          <form class="item-buttons__rename" action="index.php" method="get">
             <input type="hidden" id="renameUrl" name="renameUrl" value="${url}">
             <label for="newName" class="item-buttons__rename-label">New name:</label>
             <input type="text" id="newName" name="newName" class="item-buttons__rename-input">
