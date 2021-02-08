@@ -26,17 +26,14 @@ require('./php/model/remaneItem.php');
 
 <body>
   <header>
-    <section class="header-logo">
-      <img src="./resources/icons/svg/folder.svg" alt="Logo" class="header-logo__img">
+  <section class="header-user">
+      <img src="https://us.123rf.com/450wm/thesomeday123/thesomeday1231712/thesomeday123171200009/91087331-icono-de-perfil-de-avatar-predeterminado-para-hombre-marcador-de-posici%C3%B3n-de-foto-gris-vector-de-ilustr.jpg?ver=6" alt="User img" class="header-user__img">
     </section>
     <section class="header-search">
       <form action="" class="header-search__form">
-        <label for="search"><i class='bx bx-search-alt'></i></label>
-        <input type="text" class="header-search__form-imput" id="search" name="searchValue">
+        <input type="text" class="header-search__form-imput" id="search" name="searchValue" minlength="1" required>
+        <button type="submit"><i class='bx bx-search-alt'></i></button>
       </form>
-    </section>
-    <section class="header-user">
-      <img src="https://us.123rf.com/450wm/thesomeday123/thesomeday1231712/thesomeday123171200009/91087331-icono-de-perfil-de-avatar-predeterminado-para-hombre-marcador-de-posici%C3%B3n-de-foto-gris-vector-de-ilustr.jpg?ver=6" alt="User img" class="header-user__img">
     </section>
   </header>
   <section class="content">
