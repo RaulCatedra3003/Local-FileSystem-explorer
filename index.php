@@ -14,8 +14,12 @@ require('./php/model/moveItem.php');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href=".\css\styles.css">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+  <link rel="stylesheet" href=".\css\styles.css">
   <title>Local FileSystem explorer</title>
 </head>
 
@@ -29,9 +33,6 @@ require('./php/model/moveItem.php');
         <label for="search"><i class='bx bx-search-alt'></i></label>
         <input type="text" class="header-search__form-imput" id="search" name="searchValue">
       </form>
-    </section>
-    <section class="header-trash">
-      <a href="" class="header-trash__icon"><i class='bx bx-trash'></i></a>
     </section>
     <section class="header-user">
       <img src="https://us.123rf.com/450wm/thesomeday123/thesomeday1231712/thesomeday123171200009/91087331-icono-de-perfil-de-avatar-predeterminado-para-hombre-marcador-de-posici%C3%B3n-de-foto-gris-vector-de-ilustr.jpg?ver=6" alt="User img" class="header-user__img">

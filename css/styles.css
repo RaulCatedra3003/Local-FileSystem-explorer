@@ -5,9 +5,9 @@
 
 :root {
   --main-color: #ffffff;
-  --secondry-color: #ffffff;
-  --tertiary-color: #ffffff;
-  --quaternary-color: #ffffff;
+  --secondry-color: #007AFE;
+  --interaction-color: #D7E9FF;
+  --light-gray: #EBEBEB;
 }
 
 html,
@@ -112,6 +112,10 @@ nav,
 section {
   display: block;
 }
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
 body {
   line-height: 1;
 }
@@ -137,8 +141,15 @@ table {
 
 /* General styles */
 ol,
-ul {
-  margin: 2px 10px;
+ul, 
+li {
+  padding: 5px 5px 5px 5px;
+  vertical-align: middle;
+}
+li:hover {
+  border-radius: 2px;
+  padding: 10px;
+  background-color: var(--interaction-color);
 }
 header {
   width: 100%;
@@ -288,6 +299,22 @@ input {
   width: 25%;
   height: 90vh;
 }
+li img.navbar-icon {
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+}
+.navbar-title {
+  border-bottom: 1px  solid var(--light-gray);
+}
+.navbar-trash {
+  border-top: 1px  solid var(--light-gray);
+}
+.navbar-trash i {
+  margin: 5px;
+  font-size: 1rem;
+  align-items: center;
+} 
 .main-content {
   width: 70%;
   height: 90vh;
