@@ -5,10 +5,6 @@ if (isset($_GET["searchValue"])) {
   echo searchItems($_GET["searchValue"]);
   echo "</table>";
 } else if (isset($_GET["renameUrl"])) {
-  /* echo $_GET["renameUrl"];
-  echo "<br>";
-  echo $_GET["newName"];
-  echo "<br>"; */
   echo renameItem($_GET["renameUrl"], $_GET["newName"]);
   $positionToCut = strripos($_GET["renameUrl"], "/");
   $url = substr($_GET["renameUrl"], 0, $positionToCut);
