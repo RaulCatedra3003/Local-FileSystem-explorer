@@ -35,7 +35,7 @@ export const audio = {
             <select name="urlToMove" id="urlToMove" class="item-buttons__move-select">${optionsFragment}</select>
             <input type="submit" class="item-buttons__move-submit" value="Move">
           </form>
-          <form class="item-buttons__delete" action="" method="">
+          <form class="item-buttons__delete" action="index.php" method="get">
             <input type="hidden" id="deleteUrl" name="deleteUrl" value="${url}">
             <input type="submit" class="item-buttons__delete-submit" value="Delete">
           </form>

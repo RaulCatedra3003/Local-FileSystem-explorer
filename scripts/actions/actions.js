@@ -30,10 +30,6 @@ export const actions = {
             dispatcher.emit('showAudioInfo', data);
           } else if (extension === 'mp4') {
             dispatcher.emit('showVideoInfo', data);
-          } else if (extension === 'csv') {
-            //TODO: ver la forma de obtener el contenido del csv para mostrarlo
-            //dispatcher.emit('showCsvInfo', data);
-            console.log('mostrar modal con contenido de csv en una tabla');
           } else {
             dispatcher.emit('showGeneralInfo', data);
           }

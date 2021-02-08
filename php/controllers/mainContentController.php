@@ -4,8 +4,12 @@ if (isset($_GET["searchValue"])) {
   echo createTableTitle("sear");
   echo searchItems($_GET["searchValue"]);
   echo "</table>";
-} else if (isset($_GET["trash"])) {
-  echo "papelera";
+} else if (isset($_GET["deleteUrl"])) {
+  removeItem($rootName . $_GET["deleteUrl"]);
+  $positionToCut = strripos($_GET["deleteUrl"], "/");
+  $url = substr($_GET["deleteUrl"], 0, $positionToCut);
+  $head = $url == "" ? "Refresh: 0; URL=index.php" : "Refresh: 0; URL=index.php?dir=$url";
+  header($head);
 } else if (isset($_GET["renameUrl"])) {
   echo renameItem($_GET["renameUrl"], $_GET["newName"]);
   $positionToCut = strripos($_GET["renameUrl"], "/");
