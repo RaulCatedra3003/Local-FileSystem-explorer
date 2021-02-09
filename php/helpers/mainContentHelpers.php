@@ -42,10 +42,11 @@ function getSize($path)
 }
 
 
-function redirect($getMethod) {
+function redirect($getMethod)
+{
   $positionToCut = strripos($getMethod, "/");
   $url = substr($getMethod, 0, $positionToCut);
-  $head = ("Refresh: 0; URL=index.php" . $url == "" ? "": "?dir=$url");
+  $head =  $url == "" ? "" : "?dir=$url";
 
-  header($head);
+  header("Refresh: 0; URL=index.php" . $head);
 }
