@@ -40,3 +40,12 @@ function getSize($path)
 
   return parseSize($size);
 }
+
+
+function redirect($getMethod) {
+  $positionToCut = strripos($getMethod, "/");
+  $url = substr($getMethod, 0, $positionToCut);
+  $head = ("Refresh: 0; URL=index.php" . $url == "" ? "": "?dir=$url");
+
+  header($head);
+}

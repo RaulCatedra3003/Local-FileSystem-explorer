@@ -4,24 +4,19 @@ if (isset($_GET["searchValue"])) {
   echo createTableTitle("sear");
   echo searchItems($_GET["searchValue"]);
   echo "</table>";
+  
 } else if (isset($_GET["deleteUrl"])) {
   removeItem($rootName . $_GET["deleteUrl"]);
-  $positionToCut = strripos($_GET["deleteUrl"], "/");
-  $url = substr($_GET["deleteUrl"], 0, $positionToCut);
-  $head = $url == "" ? "Refresh: 0; URL=index.php" : "Refresh: 0; URL=index.php?dir=$url";
-  header($head);
+  redirect($_GET["deleteUrl"]);
+
 } else if (isset($_GET["renameUrl"])) {
   echo renameItem($_GET["renameUrl"], $_GET["newName"]);
-  $positionToCut = strripos($_GET["renameUrl"], "/");
-  $url = substr($_GET["renameUrl"], 0, $positionToCut);
-  $head = $url == "" ? "Refresh: 0; URL=index.php" : "Refresh: 0; URL=index.php?dir=$url";
-  header($head);
+  redirect($_GET["renameUrl"]);
+
 } else if (isset($_GET["fileToMove"])) {
   echo moveItem($_GET["fileToMove"], $_GET["urlToMove"]);
-  $positionToCut = strripos($_GET["fileToMove"], "/");
-  $url = substr($_GET["fileToMove"], 0, $positionToCut);
-  $head = $url == "" ? "Refresh: 0; URL=index.php" : "Refresh: 0; URL=index.php?dir=$url";
-  header($head);
+  redirect($_GET["fileToMove"]);
+
 } else if (isset($_GET["newFolderUrl"])) {
   $folderName = $_GET["newFolderName"];
   $url = $_GET["newFolderUrl"];
