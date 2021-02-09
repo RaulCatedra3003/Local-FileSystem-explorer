@@ -14,8 +14,8 @@
 
   <p align="center">
     Owner(s) - @RaulCatedra3003 <br>
-    Collaborators - @RaulCatedra3003 <br>
-    Status - To Approve
+    Collaborators - @VictrGreco <br>
+    Status - Released
     <br />
     <a href="https://github.com/RaulCatedra3003/Local-FileSystem-explorer"><strong>Explore the docs »</strong></a>
     <br />
@@ -76,7 +76,8 @@ If you want to contribute, please fork the repository, create a new branch, and 
 
 ## Wiki 📖
 
-You can find more information of how the app works in the [TDR](./Local-FileSystem-explorer/TDR.md) file. 
+You can find more information of how the app works in the [TDR](./Local-FileSystem-explorer/TDR.md) file.
+You can also check the full [PAPER](/Users/victorgreco/Documents/personal_projects/Local-FileSystem-explorer/Documentacion.pdf) on PDF.
 
 ## Author ✒️
 
