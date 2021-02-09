@@ -76,8 +76,9 @@ If you want to contribute, please fork the repository, create a new branch, and 
 
 ## Wiki 📖
 
-You can find more information of how the app works in the [TDR](./TDR.md) file.
-You can also check the full [PAPER](./Documentacion.pdf) on PDF.
+You can find more information of how the app works in the [TDR](./documentation/TDR.md) file.
+You can also check the full [PAPER](./documentation/Documentation.pdf) on PDF.
+You can also find some [SLIDES](/Users/victorgreco/Documents/personal_projects/Local-FileSystem-explorer/documentation/Presentation.pdf) about the project.
 
 ## Author ✒️
 
