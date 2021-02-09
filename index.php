@@ -9,7 +9,7 @@ require('./php/model/searchItems.php');
 require('./php/model/moveItem.php');
 require('./php/model/remaneItem.php');
 require('./php/model/removeItem.php');
-?>
+?>asd
 <!DOCTYPE html>
 <html lang="en">
 
